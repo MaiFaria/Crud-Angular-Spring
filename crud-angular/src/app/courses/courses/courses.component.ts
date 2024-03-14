@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { Course } from '../models/course';
 import { CoursesService } from '../services/courses.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-courses',
@@ -8,8 +9,12 @@ import { CoursesService } from '../services/courses.service';
   styleUrl: './courses.component.scss',
 })
 export class CoursesComponent {
-  courses: Course[] = [{ _id: '1', name: 'Angular', category: 'Frontend' }];
+  courses: Observable<Course[]>;
   displayedColumns = ['name', 'category'];
 
   private readonly coursesService = inject(CoursesService);
+
+  constructor() {
+    this.courses = this.coursesService.list();
+  }
 }
