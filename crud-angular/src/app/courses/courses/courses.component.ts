@@ -7,8 +7,6 @@ import { Course } from '../models/course';
   styleUrl: './courses.component.scss',
 })
 export class CoursesComponent {
-  courses: Course[] = [
-    { _id: '1', name: 'Angular', category: 'Angular-frontend' },
-  ];
+  courses: Course[] = [{ _id: '1', name: 'Angular', category: 'Frontend' }];
   displayedColumns = ['name', 'category'];
 }
