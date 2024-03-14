@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Course } from '../models/course';
+import { CoursesService } from '../services/courses.service';
 
 @Component({
   selector: 'app-courses',
@@ -9,4 +10,6 @@ import { Course } from '../models/course';
 export class CoursesComponent {
   courses: Course[] = [{ _id: '1', name: 'Angular', category: 'Frontend' }];
   displayedColumns = ['name', 'category'];
+
+  private readonly coursesService = inject(CoursesService);
 }
